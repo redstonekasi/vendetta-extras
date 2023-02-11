@@ -1,2 +1,2 @@
 # vendetta-extras
-Addition types for Vendetta, usually for native Discord modules.
+Additional types for Vendetta, usually for native Discord modules.
