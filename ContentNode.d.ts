@@ -157,4 +157,25 @@ interface UserOrRoleMentionContentNode {
   content: ContentNode[];
 }
 
-type ContentNode = BlockQuoteContentNode | BulletListContentNode | ChannelMentionContentNode | CodeBlockContentNode | CommandMentionContentNode | CustomEmojiContentNode | EmphasisContentNode | HeadingContentNode | InlineCodeContentNode | LineBreakContentNode | LinkContentNode | ParagraphContentNode | SpoilerContentNode | StaticChannelMentionContentNode | StrikethroughContentNode | StrongContentNode | TextContentNode | TimestampContentNode | UnderlineContentNode | UnicodeEmojiContentNode | UserOrRoleMentionContentNode;
+type ContentNode =
+  | BlockQuoteContentNode
+  | BulletListContentNode
+  | ChannelMentionContentNode
+  | CodeBlockContentNode
+  | CommandMentionContentNode
+  | CustomEmojiContentNode
+  | EmphasisContentNode
+  | HeadingContentNode
+  | InlineCodeContentNode
+  | LineBreakContentNode
+  | LinkContentNode
+  | ParagraphContentNode
+  | SpoilerContentNode
+  | StaticChannelMentionContentNode
+  | StrikethroughContentNode
+  | StrongContentNode
+  | TextContentNode
+  | TimestampContentNode
+  | UnderlineContentNode
+  | UnicodeEmojiContentNode
+  | UserOrRoleMentionContentNode;
