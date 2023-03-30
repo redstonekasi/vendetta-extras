@@ -1,3 +1,4 @@
+import { Component } from "./Component";
 import { Embed } from "./Embed";
 import { InviteEmbed } from "./InviteEmbed";
 import { AnnotatedStructurableText, StructurableText } from "./StructurableText";
@@ -346,7 +347,7 @@ export interface Message {
   animateEmoji?: boolean;
   referencedMessage?: ReferencedMessage;
   executedCommand?: ExecutedCommand;
-  components?: unknown;
+  components?: Component[];
   threadStarterMessageHeader?: string;
   communicationDisabled?: boolean;
   tagText?: string;
