@@ -1,16 +1,16 @@
-interface BlockQuoteContentNode {
+export interface BlockQuoteContentNode {
   type: "blockQuote";
   content: ContentNode[];
 }
 
-interface BulletListContentNode {
+export interface BulletListContentNode {
   type: "list";
   start?: number;
   ordered?: boolean;
   items: ContentNode[][];
 }
 
-declare enum ChannelType {
+export enum ChannelType {
   DM = 1,
   GROUP_DM = 3,
   GUILD_TEXT = 0,
@@ -26,7 +26,7 @@ declare enum ChannelType {
   GUILD_FORUM = 15,
 }
 
-interface ChannelMentionContentNode {
+export interface ChannelMentionContentNode {
   type: "channelMention";
   channelId: string;
   guildId?: string;
@@ -36,7 +36,7 @@ interface ChannelMentionContentNode {
   content: ContentNode[];
 }
 
-interface ChannelNameContentNode {
+export interface ChannelNameContentNode {
   type: "channel";
   channelId: string;
   guildId?: string;
@@ -44,14 +44,14 @@ interface ChannelNameContentNode {
   content: ContentNode[];
 }
 
-interface CodeBlockContentNode {
+export interface CodeBlockContentNode {
   type: "codeBlock";
   lang: string;
   content: string;
   inQuote: boolean;
 }
 
-interface CommandMentionContentNode {
+export interface CommandMentionContentNode {
   type: "commandMention";
   channelId: string;
   commandId: string;
@@ -60,7 +60,7 @@ interface CommandMentionContentNode {
   content: ContentNode[];
 }
 
-interface CustomEmojiContentNode {
+export interface CustomEmojiContentNode {
   type: "customEmoji";
   id: number;
   alt: string;
@@ -69,34 +69,34 @@ interface CustomEmojiContentNode {
   jumboable?: boolean;
 }
 
-interface EmphasisContentNode {
+export interface EmphasisContentNode {
   type: "em";
   content: ContentNode[];
 }
 
-interface GuildNameContentNode {
+export interface GuildNameContentNode {
   type: "guild";
   content: string;
   guildId: string;
   icon: string;
 }
 
-interface HeadingContentNode {
+export interface HeadingContentNode {
   type: "heading";
   content: ContentNode[];
   level: number;
 }
 
-interface InlineCodeContentNode {
+export interface InlineCodeContentNode {
   type: "inlineCode";
   content: string;
 }
 
-interface LineBreakContentNode {
+export interface LineBreakContentNode {
   type: "br";
 }
 
-interface LinkContentNode {
+export interface LinkContentNode {
   type: "link";
   content: ContentNode[];
   target: string;
@@ -105,66 +105,66 @@ interface LinkContentNode {
   // textContent?: string;
 }
 
-interface ParagraphContentNode {
+export interface ParagraphContentNode {
   type: "paragraph";
   content: ContentNode[];
 }
 
-interface SpoilerContentNode {
+export interface SpoilerContentNode {
   type: "spoiler";
   content: ContentNode[];
   spoilerOrNull?: string;
 }
 
-declare enum StaticChannelMentionType {
+export enum StaticChannelMentionType {
   Home = "home",
   Customize = "customize",
   Browse = "browse",
   Unknown = "",
 }
 
-interface StaticChannelMentionContentNode {
+export interface StaticChannelMentionContentNode {
   type: "staticRouteLink";
   channelId: StaticChannelMentionType;
   guildId?: number;
   content: ContentNode[];
 }
 
-interface StrikethroughContentNode {
+export interface StrikethroughContentNode {
   type: "s";
   content: ContentNode[];
 }
 
-interface StrongContentNode {
+export interface StrongContentNode {
   type: "strong";
   content: ContentNode[];
 }
 
-interface TextContentNode {
+export interface TextContentNode {
   type: "text";
   content: string;
 }
 
-interface TimestampContentNode {
+export interface TimestampContentNode {
   type: "timestamp";
   timestamp: number;
   full: string;
   formatted: string;
 }
 
-interface UnderlineContentNode {
+export interface UnderlineContentNode {
   type: "u";
   content: ContentNode[];
 }
 
-interface UnicodeEmojiContentNode {
+export interface UnicodeEmojiContentNode {
   type: "emoji";
   content: string;
   surrogate: string;
   jumboable?: boolean;
 }
 
-interface UserOrRoleMentionContentNode {
+export interface UserOrRoleMentionContentNode {
   type: "mention";
   channelId: string;
   userId?: string;
@@ -174,7 +174,7 @@ interface UserOrRoleMentionContentNode {
   content: ContentNode[];
 }
 
-type ContentNode =
+export type ContentNode =
   | BlockQuoteContentNode
   | BulletListContentNode
   | ChannelNameContentNode
