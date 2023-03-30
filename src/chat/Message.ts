@@ -1,3 +1,4 @@
+import { Embed } from "./Embed";
 import { AnnotatedStructurableText, StructurableText } from "./StructurableText";
 
 export interface ErrorMessage {
@@ -147,7 +148,7 @@ export interface Message {
   colorString?: number;
   avatarURL?: string;
   avatarDecorationURL?: string;
-  embeds?: unknown;
+  embeds?: Embed[];
   attachments?: unknown;
   content?: StructurableText;
   progress?: UploadProgress[];
