@@ -169,6 +169,24 @@ export interface ThreadEmbed {
   referencedMessage?: ThreadEmbedMessage;
 }
 
+export enum ReferencedMessageState {
+  LOADED = 0,
+  SYSTEM = 1,
+}
+
+export interface LoadedReferencedMessage {
+  state: ReferencedMessageState.LOADED;
+  message: Message;
+  systemContent: string;
+}
+
+export interface SystemReferencedMessage {
+  state: ReferencedMessageState.SYSTEM;
+  content: string;
+}
+
+export type ReferencedMessage = LoadedReferencedMessage | SystemReferencedMessage;
+
 export interface ExecutedCommand {
   userId: string;
   usernameColor: number;
@@ -197,6 +215,100 @@ export interface InteractionStatus {
   state: InteractionStatusViewState;
   text: StructurableText;
 }
+
+export interface ActivityInviteEmbed {
+  coverImage?: string;
+  isListening: boolean;
+  headerText: string;
+  partyStatus: string;
+  avatarsToRender?: string[];
+  maxPartySize: number;
+  name?: string;
+  subtext?: string;
+  joinable: boolean;
+  ctaText: string;
+}
+
+export interface ForumPostActions {
+  numDisplayedReactions: number;
+  isFollowing: boolean;
+  followIcon: string;
+  followLabel: string;
+  shareIcon: string;
+  shareLabel: string;
+  defaultReaction?: MessageReaction;
+}
+
+export interface FlaggedMessageEmbed {
+  id: string;
+  channelId: string;
+  guildId?: string;
+  userId?: string;
+  content?: StructurableText;
+  channelName?: string;
+  username?: string;
+  usernameColor: number;
+  roleColor?: string;
+  shouldShowRoleDot: boolean;
+  avatarURL?: string;
+  communicationDisabled?: boolean;
+}
+
+export interface AutoModerationContext {
+  headerText: string;
+  headerBadgeText: string;
+  ruleDisplayText?: string;
+  keywordDisplayText?: string;
+  actionsIconURL?: string;
+  actionsText: string;
+  feedbackText: string;
+  message: FlaggedMessageEmbed;
+}
+
+export interface GiftEmbedResolving {
+  headerText: string;
+  headerColor: number;
+  backgroundColor: number;
+  thumbnailCornerRadius: number;
+  resolvingGradientStart: number;
+  resolvingGradientEnd: number;
+}
+
+export interface GiftEmbedInvalid {
+  headerText: string;
+  headerColor: number;
+  backgroundColor: number;
+  thumbnailCornerRadius: number;
+  thumbnailUrl: string;
+  titleText: string;
+  titleColor: number;
+  subtitle: string;
+  subtitleColor: number;
+  thumbnailBackgroundColor: number;
+}
+
+export interface GiftEmbedValid {
+  headerText: string;
+  headerColor: number;
+  backgroundColor: number;
+  thumbnailCornerRadius: number;
+  thumbnailUrl?: string;
+  titleText?: string;
+  titleColor: number;
+  subtitle?: string;
+  subtitleColor: number;
+  bodyText?: string;
+  bodyTextColor: number;
+  acceptLabelText?: string;
+  acceptLabelColor: number;
+  acceptLabelBackgroundColor: number;
+  splashUrl?: string;
+  splashOpacity: number;
+  canBeAccepted: boolean;
+  giftCode: string;
+}
+
+type GiftEmbed = GiftEmbedResolving | GiftEmbedInvalid | GiftEmbedValid;
 
 export interface Message {
   type: MessageType;
@@ -232,7 +344,7 @@ export interface Message {
   mentioned: boolean;
   gifAutoPlay?: boolean;
   animateEmoji?: boolean;
-  referencedMessage?: unknown;
+  referencedMessage?: ReferencedMessage;
   executedCommand?: ExecutedCommand;
   components?: unknown;
   threadStarterMessageHeader?: string;
@@ -257,12 +369,12 @@ export interface Message {
   stickerLabel?: string;
   buttonLabel?: string;
   showInviteToSpeakButton?: boolean;
-  activityInviteEmbed?: unknown;
+  activityInviteEmbed?: ActivityInviteEmbed;
   isFirstForumPostMessage?: boolean;
-  postActions?: unknown;
-  autoModerationContext?: unknown;
-  giftCodes?: unknown;
-  referralTrialOffer?: unknown;
+  postActions?: ForumPostActions;
+  autoModerationContext?: AutoModerationContext;
+  giftCodes?: GiftEmbed[];
+  referralTrialOffer?: GiftEmbed;
   totalMonthsSubscribed?: number;
   swipeToReplyIconUrl?: string;
 }
