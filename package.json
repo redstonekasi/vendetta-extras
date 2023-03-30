@@ -1,16 +1,17 @@
 {
   "name": "vendetta-extras",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Additional types for Vendetta",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "pub": "pnpm build && pnpm publish"
+    "prepare": "pnpm build"
   },
   "keywords": [
     "vendetta",
     "discord"
   ],
+  "repository": "github:redstonekasi/vendetta-extras",
   "author": "redstonekasi",
   "license": "BSD-3-Clause",
   "devDependencies": {
