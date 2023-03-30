@@ -1,4 +1,5 @@
 import { Embed } from "./Embed";
+import { InviteEmbed } from "./InviteEmbed";
 import { AnnotatedStructurableText, StructurableText } from "./StructurableText";
 
 export interface ErrorMessage {
@@ -52,6 +53,31 @@ export enum MessageState {
   Unknown = "UNKNOWN",
 }
 
+export interface Attachment {
+  url: string;
+  videoUrl?: string;
+  filename: string;
+  size: string;
+  width?: number;
+  height?: number;
+  isSpoiler: boolean;
+  spoiler?: string;
+  description?: string;
+  hint?: string;
+  role?: string;
+  showDescription?: boolean;
+  progress?: number;
+  uploaderId?: string;
+  uploaderItemId?: string;
+  durationSecs?: unknown;
+  waveform?: string;
+  isAnimated?: boolean;
+  waveformByteArray?: unknown;
+  spoilerOrNull?: string;
+  proxyWidth?: number;
+  proxyHeight?: number;
+}
+
 export interface UploadProgress {
   headerText: string;
   headerColor: number;
@@ -64,6 +90,37 @@ export interface UploadProgress {
   progressEndColor: number;
   iconTintColor: number;
   closeTintColor: number;
+}
+
+export interface MessageReactionEmoji {
+  name?: string;
+  src: string;
+  displayName: string;
+  id?: string;
+  animated?: boolean;
+}
+
+export interface BurstReactionColorPalette {
+  backgroundColor: string;
+  accentColor: string;
+  highlightColor: string;
+  opacity: number;
+}
+
+export interface ThemedBurstReactionColorPalette {
+  LIGHT: BurstReactionColorPalette;
+  DARK: BurstReactionColorPalette;
+}
+
+export interface MessageReaction {
+  count: number;
+  me: boolean;
+  me_burst?: boolean;
+  emoji: MessageReactionEmoji;
+  burst_count?: number;
+  burst_me?: boolean;
+  themedBurstColors?: ThemedBurstReactionColorPalette;
+  isMe?: unknown;
 }
 
 export enum StickerFormatType {
@@ -149,12 +206,12 @@ export interface Message {
   avatarURL?: string;
   avatarDecorationURL?: string;
   embeds?: Embed[];
-  attachments?: unknown;
+  attachments?: Attachment[];
   content?: StructurableText;
   progress?: UploadProgress[];
-  reactions?: unknown;
+  reactions?: MessageReaction[];
   useSortedReactions?: boolean;
-  invite?: unknown;
+  invite?: InviteEmbed[];
   stickers?: Sticker[];
   roleIcon?: RoleIcon;
   connectionsRoleTag?: ConnectionsRoleTag;
