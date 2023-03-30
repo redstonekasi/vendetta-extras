@@ -1,4 +1,5 @@
-import { MessageBase } from "./Message";
+import { Message, MessageBase } from "./Message";
+import { MessageFrame } from "./MessageFrame";
 
 export enum ChangeType {
   NOOP = 0,
@@ -46,6 +47,27 @@ export interface LoadingRow {
   isLoading: boolean;
 }
 
+export interface ReactionsTheme {
+  reactionBackgroundColor?: number;
+  reactionBorderColor?: number;
+  reactionTextColor?: number;
+  activeReactionBackgroundColor?: number;
+  activeReactionBorderColor?: number;
+  activeReactionTextColor?: number;
+}
+
+export interface Truncation {
+  numberOfLines: number;
+  seeMoreLabel: string;
+  seeMoreLabelColor?: number;
+  forceShow?: true;
+}
+
+export interface BackgroundHighlight {
+  backgroundColor: number;
+  gutterColor: number;
+}
+
 export interface MessageRow {
   type: RowType.MessageRow;
   changeType: Exclude<ChangeType, ChangeType.DELETE>
@@ -58,13 +80,13 @@ export interface MessageRow {
   canAddNewReactions?: boolean;
   addReactionLabel?: string;
   addNewReactionAccessibilityLabel?: string;
-  reactionsTheme?: unknown;
+  reactionsTheme?: ReactionsTheme;
   isHighlight?: boolean;
   renderContentOnly?: boolean;
-  messageFrame?: unknown;
+  messageFrame?: MessageFrame;
   reactTag?: number;
-  truncation?: unknown;
-  backgroundHighlight?: unknown;
+  truncation?: Truncation;
+  backgroundHighlight?: BackgroundHighlight;
   enableSwipeToReply?: boolean;
 }
 
@@ -108,7 +130,7 @@ export interface UploadProgressRow {
   type: RowType.UploadProgressRow;
   changeType: Exclude<ChangeType, ChangeType.DELETE>
   index: number;
-  message: unknown;
+  message: Message;
   fileId: string;
 }
 
