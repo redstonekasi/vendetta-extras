@@ -27,6 +27,16 @@ declare enum ChannelType {
 }
 
 interface ChannelMentionContentNode {
+  type: "channelMention";
+  channelId: string;
+  guildId?: string;
+  messageId?: string;
+  originalLink?: string;
+  inContent?: ContentNode[];
+  content: ContentNode[];
+}
+
+interface ChannelNameContentNode {
   type: "channel";
   channelId: string;
   guildId?: string;
@@ -62,6 +72,13 @@ interface CustomEmojiContentNode {
 interface EmphasisContentNode {
   type: "em";
   content: ContentNode[];
+}
+
+interface GuildNameContentNode {
+  type: "guild";
+  content: string;
+  guildId: string;
+  icon: string;
 }
 
 interface HeadingContentNode {
@@ -160,11 +177,13 @@ interface UserOrRoleMentionContentNode {
 type ContentNode =
   | BlockQuoteContentNode
   | BulletListContentNode
+  | ChannelNameContentNode
   | ChannelMentionContentNode
   | CodeBlockContentNode
   | CommandMentionContentNode
   | CustomEmojiContentNode
   | EmphasisContentNode
+  | GuildNameContentNode
   | HeadingContentNode
   | InlineCodeContentNode
   | LineBreakContentNode
