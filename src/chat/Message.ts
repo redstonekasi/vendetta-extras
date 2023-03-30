@@ -156,6 +156,19 @@ export interface ConnectionsRoleTag {
   iconColor: number;
 }
 
+export interface ThreadEmbedMessage {
+  message: Message;
+}
+
+export interface ThreadEmbed {
+  title: string;
+  messageCountLabel: string;
+  messagePreviewString?: string;
+  archived?: boolean;
+  archivedIconUrl?: string;
+  referencedMessage?: ThreadEmbedMessage;
+}
+
 export interface ExecutedCommand {
   userId: string;
   usernameColor: number;
@@ -215,7 +228,7 @@ export interface Message {
   stickers?: Sticker[];
   roleIcon?: RoleIcon;
   connectionsRoleTag?: ConnectionsRoleTag;
-  threadEmbed?: unknown;
+  threadEmbed?: ThreadEmbed;
   mentioned: boolean;
   gifAutoPlay?: boolean;
   animateEmoji?: boolean;
