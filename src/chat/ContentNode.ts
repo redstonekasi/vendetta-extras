@@ -62,7 +62,7 @@ export interface CommandMentionContentNode {
 
 export interface CustomEmojiContentNode {
   type: "customEmoji";
-  id: number;
+  id: string;
   alt: string;
   src: string;
   frozenSrc: string;
