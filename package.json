@@ -1,6 +1,6 @@
 {
   "name": "vendetta-extras",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Additional types for Vendetta",
   "main": "dist/index.js",
   "scripts": {
