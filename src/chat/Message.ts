@@ -70,10 +70,10 @@ export interface Attachment {
   progress?: number;
   uploaderId?: string;
   uploaderItemId?: string;
-  durationSecs?: unknown;
+  durationSecs?: number;
   waveform?: string;
   isAnimated?: boolean;
-  waveformByteArray?: unknown;
+  waveformByteArray?: number[];
   spoilerOrNull?: string;
   proxyWidth?: number;
   proxyHeight?: number;
